@@ -19,6 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/supports/{id}/edit', [SupportController::class, 'edit'])->name('supports.edit');
+
 Route::get('/supports', [SupportController::class, 'index'])->name('supports.index');
 
 Route::get('/contato', [TestController::class, 'contact']);
+
+Route::post("/insertSupport", [SupportController::class, 'insertSupport'])->name("supports.insertSupport");
+
+Route::get('/supports/{id}', [SupportController::class, 'show'])->name('supports.show');
