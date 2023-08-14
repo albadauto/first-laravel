@@ -19,7 +19,7 @@ class SupportController extends Controller
             'status' => 'a'
         ];
         Support::create($arrWithData);
-        return redirect('/supports')->with('success', 'Cadastrado com sucesso');
+        return redirect('/')->with('success', 'Cadastrado com sucesso');
     }
 
 
@@ -36,6 +36,18 @@ class SupportController extends Controller
             return back();
         }
         return view('admin/supports.edit', ['support' => $support]);
+    }
+
+    public function Update(string|int $id, Request $request, Support $support){
+        if(!$support = Support::where('id', $id)->first()){
+            return back();
+        }
+        $support->update($request->only([
+            'subject', 'body'
+        ]));
+
+        return redirect()->route('supports.index');
+
     }
 
 

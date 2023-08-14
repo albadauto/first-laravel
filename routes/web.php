@@ -15,13 +15,11 @@ use App\Http\Controllers\SupportController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::put('/supports/{id}', [SupportController::class, 'Update'])->name('supports.update');
+
+Route::get('/', [SupportController::class, 'index'])->name('supports.index');
 
 Route::get('/supports/{id}/edit', [SupportController::class, 'edit'])->name('supports.edit');
-
-Route::get('/supports', [SupportController::class, 'index'])->name('supports.index');
 
 Route::get('/contato', [TestController::class, 'contact']);
 

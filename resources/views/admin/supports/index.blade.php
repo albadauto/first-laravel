@@ -16,7 +16,10 @@
         <tbody>
         @foreach($supports as $support)
             <tr>
-                <th scope="row"><a href="{{ url('supports/'. $support->id) }}">Verificar</a></th>
+                <th scope="row">
+                    <a href="{{ url('supports/'. $support->id) }}">Verificar</a>
+                    <a href="{{ route('supports.edit', $support->id) }}">Editar</a>
+                </th>
                 <td>{{ $support->subject }}</td>
                 <td>{{ $support->status }}</td>
                 <td>{{ $support->body }}</td>
