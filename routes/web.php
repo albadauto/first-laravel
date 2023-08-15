@@ -30,5 +30,6 @@ Route::get('/supports/{id}', [SupportController::class, 'show'])->name('supports
 Route::prefix('login')->group(function (){
     Route::get('/', [LoginController::class, 'Index'])->name('login.index');
     Route::post('/loginUser', [LoginController::class, 'auth'])->name('login.loginUser');
-
+    Route::get("/register", [LoginController::class, 'Register'])->name('login.register');
+    Route::post('/registerUser', [LoginController::class, 'RegisterUser'])->name('login.registerUser');
 });
