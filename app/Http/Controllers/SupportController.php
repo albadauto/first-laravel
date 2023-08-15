@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSupportRequest;
 use App\Models\Support;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class SupportController extends Controller
         return view('admin/supports/index', compact('supports'));
     }
 
-    public function insertSupport(Request $request){
+    public function insertSupport(StoreSupportRequest $request){
         $arrWithData = [
             'subject' => $request->subject,
             'body' => $request->body,

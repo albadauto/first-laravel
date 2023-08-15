@@ -35,6 +35,11 @@
             <h1>Cadastro de suporte</h1>
         </div>
     </div>
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            {{ $error }}
+        @endforeach
+    @endif
     <form action="{{ route("supports.insertSupport") }}" method="post">
         @csrf
         <input type="text" name="subject" id="" class="form-control" placeholder="Assunto"> <br/>
